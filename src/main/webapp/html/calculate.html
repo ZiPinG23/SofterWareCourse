@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易计算器</title>
+    <style>
+        textarea{
+            width: 200px;
+            height: 30px;
+            font-size:30px ;
+            margin: 0 5px;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+        }
+        .statics{
+            margin-top: 20px;
+            text-align: center;
+        }
+        #answer{
+            width: 150px;
+        }
+    </style>
+    <script>
+        window.onload=function (){
+            let textarea1 = document.querySelector("#firstNum")
+            let textarea2 = document.querySelector("#secondNum")
+            let operator = document.querySelector("#operator")
+            let answer_textarea = document.querySelector("#answer")
+            let a = document.querySelector("#button")
+            a.addEventListener("click",()=>{
+                let choice = operator.value;
+                let firstNumber =parseInt(textarea1.value);
+                let secondNumber =parseInt(textarea2.value);
+                if(choice === "+"){
+                    answer_textarea.value=firstNumber+secondNumber;
+                }
+                else if(choice === "-"){
+                    answer_textarea.value=firstNumber-secondNumber;
+                }
+                else if(choice === "*"){
+                    answer_textarea.value=firstNumber*secondNumber;
+                }
+                else if(choice==="/"){
+                    if(secondNumber===0){
+                        alert("被除数不能为零请重新输入")
+                    }
+                    else {
+                        answer_textarea.value=firstNumber/secondNumber;
+                    }
+                }
+            })
+            textarea1.addEventListener("input",()=>{
+                answer_textarea.value=""
+            })
+            textarea2.addEventListener("input",()=>{
+                answer_textarea.value=""
+            })
+
+        }
+
+    </script>
+</head>
+<body>
+<div>
+  简易计算器
+</div>
+<div class="statics">
+    <label for="firstNum"></label>
+    <textarea id="firstNum"></textarea>
+    <label for="operator"></label>
+    <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    </select>
+    <label for="secondNum"></label>
+    <textarea id="secondNum"></textarea>
+    <button id="button">=</button>
+    <label for="answer"></label><textarea id="answer" readonly></textarea>
+</div>
+<div>
+    <p>tips:<br>
+        1.被除数不能为0，为0会弹出警告窗口提示<br>
+        2.结果文本框设置为不可修改模式<br>
+        3.修改前面两个操作数时结果操作窗口自动置为空</p>
+</div>
+</body>
+</html>

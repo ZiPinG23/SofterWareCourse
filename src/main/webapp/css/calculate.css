@@ -1,0 +1,21 @@
+textarea{
+    width: 200px;
+    height: 30px;
+    font-size:30px ;
+    margin: 0 5px;
+}
+div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
+.statics{
+    margin-top: 20px;
+    text-align: center;
+}
+#answer{
+    width: 150px;
+}

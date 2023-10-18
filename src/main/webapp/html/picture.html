@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        button{
+            margin: 0 10px;
+        }
+    </style>
+    <script>
+        window.onload=function (){
+            let array = ["../res/fufu.jpg","../res/fufu1.jpg","../res/fufu2.jpg","../res/fufu3.jpg"]
+            let button_front = document.querySelector("#front")
+            let button_back = document.querySelector("#back")
+            let pic = document.querySelector("#pic")
+            let choice = 0;
+            button_front.addEventListener("click",()=>{
+                if(choice===0){
+                    choice=3;
+                }
+                else {
+                    choice--
+                }
+                choice%=4
+                pic.src=array[choice]
+            })
+            button_back.addEventListener("click",()=>{
+                choice++
+                choice%=4
+                pic.src=array[choice]
+            })
+        }
+    </script>
+</head>
+<body>
+<div>
+    <img id="pic" src="../res/fufu.jpg" alt="">
+</div>
+<div>
+    <button id="front">向前</button>
+    <button id="back">向后</button>
+</div>
+</body>
+</html>

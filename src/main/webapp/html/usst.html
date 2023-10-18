@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>上海理工大学</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      font-size: 50px;
+      border: crimson 5px solid;
+      border-left: none;
+      border-right: none;
+    }
+    #contents{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .subtitle{
+      font-size: 30px;
+      font-weight: bold;
+      font-style: italic;
+      margin: 10px;
+    }
+    #intro{
+      width: 800px;
+      height: 530px;
+    }
+    #intro>p{
+      font-family: 华文楷体,serif;
+    }
+    #course{
+      margin-left: 50px;
+    }
+    #course>ul{
+      margin-left: 40px;
+    }
+    #menu{
+      width: 350px;
+      height: 500px;
+      margin-left: 80px;
+    }
+    .submenu{
+      border: #ffc125 solid 3px;
+      font-size: 15px;
+      height: 60px;
+      display: flex;
+      margin: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    #intro>ul{
+      margin-top: 10px;
+      margin-left: 30px;
+    }
+    #bottom{
+      margin-top: 30px;
+      height: 70px;
+      border: red solid 5px;
+      font-size: 10px;
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload=function (){
+      document.querySelector("#moreinfo").addEventListener("click", () => {
+        console.log("123")
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            console.log(this.responseText); // 输出: This is a text message from Servlet.
+          }
+        };
+        xhr.open(
+                "GET",
+                "http://localhost:8080/PinGWeb_war_exploded/USST",true
+        );
+        xhr.send();
+        console.log(`请求已发起\n`) ;
+      });
+    }
+  </script>
+</head>
+<body>
+<div id="title">
+  上海理工大学
+</div>
+<div id="contents">
+  <div id="intro">
+      <div class="subtitle">
+        学校简介
+      </div>
+    <p>&nbsp;&nbsp;上海理工大学是一所以工学为主，工学、理学、经济学、管理学、文学、法学、艺术学等多学科协
+      调发展的上海市属重点应用研究型大学，是上海市首批“高水平地方高校”建设试点单位。<br><br>
+      &nbsp;&nbsp;学校设有18个学院（部），现有全日制在校生28000余人，其中本科生17000余人，研究生11000余
+      人。现有教职工2700余人，其中中国科学院、中国工程院院士10人（含双聘），国家级人才73人次，
+      省部级人才267人次，高级职称教师949人，博士生导师430人。</p>
+    <div class="subtitle">
+      国际办学
+    </div>
+    <p>&nbsp;&nbsp;学校是国内最早开办国际合作办学的高校之一，国际学生近600人，与39个国家和地区的近200所高
+      等院校和研究机构建立了合作关系，建有中英国际学院和中德国际学院2个中外合作办学机构。学校
+      是沪港大学联盟副理事长单位。</p>
+      <ul>
+        <li>德国</li>
+        <li>美国</li>
+        <li>英国</li>
+        <li>中英国际学院</li>
+        <li>中德国际学院</li>
+      </ul>
+    <p><br> &nbsp;&nbsp;学校特色情况:</p>
+    <ul>
+      <li><a href="">科教之窗</a></li>
+      <li><a href="">文化上理</a></li>
+      <li><a href="">数字上理</a></li>
+    </ul>
+  </div>
+  <div id="course">
+    <div class="subtitle">
+      学校主要课程
+    </div>
+      <ul>
+        <li><a href="">计算机科学与技术</a></li>
+        <li><a href="">光学电子</a></li>
+        <li><a href="">人工智能与学习</a></li>
+        <li><a href="">计算机网络工程</a></li>
+        <li><a href="">智能控制与物联网技术</a></li>
+        <li><a href="">出版印刷与艺术设计</a></li>
+        <li><a href="">Data mining</a></li>
+        <li><a href="">Computer security</a></li>
+        <li><a href="">Bioinformatics</a></li>
+      </ul>
+    <a href="" id="moreinfo"><br>更多课程</a>
+  </div>
+  <div id="menu">
+    <div class="submenu">首页</div>
+    <div class="submenu">历史沿革</div>
+    <div class="submenu">教务信息</div>
+    <div class="submenu">教工信息</div>
+    <div class="submenu">媒体报道</div>
+    <div class="submenu">招生就业</div>
+  </div>
+  <div id="bottom">&nbsp;&nbsp;&nbsp;©2023上海理工大学</div>
+</div>
+</body>
+</html>
